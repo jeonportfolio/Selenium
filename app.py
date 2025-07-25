@@ -1,5 +1,5 @@
 # python -m virtualenv venv => 가상환경 설치 
-# folder/Scripts/activate - 가상환경 활성화, deactivate 가상환경 비활성화 
+# venv/Scripts/activate - 가상환경 활성화, deactivate 가상환경 비활성화 
 # pip install selenium chromedriver_autoinstaller
 import time 
 from selenium import webdriver
