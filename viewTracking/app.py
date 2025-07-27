@@ -7,12 +7,12 @@ chromedriver_autoinstaller.install()
 
 driver = webdriver.Chrome()
 
-query = "김동률"
+query = "opic"
 
 search_link = f"https://search.naver.com/search.naver?ssc=tab.video.all&where=video&sm=tab_jum&query={query}"
 driver.get(search_link)
 time.sleep(2)
-target_play_link = "https://www.youtube.com/watch?v=6aeZ7CYaNUk"
+target_play_link = "https://www.youtube.com/watch?v=ixP52mkjoCo"
 link_selector = f'a[href^="{target_play_link}"]'
 PLAY_FOUND = False
 for _ in range(7): # 최대 7번의 영상 순위 찾기 글을 불러온다.
@@ -21,9 +21,8 @@ for _ in range(7): # 최대 7번의 영상 순위 찾기 글을 불러온다.
         while True:
             new_element = element.find_element(By.XPATH, "./..")
             nowRank = new_element.get_attribute("data-cr-rank")
-            if nowRank != None: 
-                    realRank = int(nowRank) - 20  
-                    print("현재랭크 찾음", realRank)
+            if nowRank != None:  
+                    print("현재랭크 찾음", nowRank)
                     PLAY_FOUND = True
                     break
             print ("현재랭크 못찾음")
@@ -34,5 +33,5 @@ for _ in range(7): # 최대 7번의 영상 순위 찾기 글을 불러온다.
         print("타겟 영상을 못찾았습니다 스크롤을 시작합니다.")
         driver.execute_script("window.scrollBy(0,10000);")
         time.sleep(3) #  로딩 대기 
-print(f"{realRank} : 타겟 영상의 순위를 찾았습니다.")
+print(f"{nowRank} : 타겟 영상의 순위를 찾았습니다.")
 input()
