@@ -16,9 +16,7 @@ for query, target_code in zip(queries, target_codes):
     rank = -1
     for pageIndex in range(1,15):
         # URL로 1페이지 방문
-
-        product_link = f"https://msearch.shopping.naver.com/search/all?adQuery=%EC%95%84%EB%94%94%EB%8B%A4%EC%8A%A4&origQuery=%EC%95%84%EB%94%94%EB%8B%A4%EC%8A%A4&pagingIndex={pageIndex}&pagingSize=40&personalized=true&productSet=total&query={query}&sort=foryou&viewType=list"
-
+        product_link = f"https://msearch.shopping.naver.com/search/all?adQuery={query}&origQuery={query}&pagingIndex={pageIndex}&pagingSize=40&personalized=true&productSet=total&query={query}&sort=foryou&viewType=list"
         driver.get(product_link)
         time.sleep(3)
 
